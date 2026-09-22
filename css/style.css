@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0b0c10;
+  --fg: #f5f5f5;
+  --accent: #e63946;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.site-header,
+.site-footer {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+main {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  color: var(--accent);
+}
