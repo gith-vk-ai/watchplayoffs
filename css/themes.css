@@ -1,0 +1,94 @@
+/* =========================================================
+   WatchPlayoffs — League Themes
+   Each league sets one of these classes on <body>. Only
+   these CSS variables differ between leagues — layout,
+   typography, and components stay shared (see style.css).
+   ========================================================= */
+
+/* MLB — navy + red, classic, trustworthy baseball look */
+.theme-mlb {
+  --league-primary: #041e42;
+  --league-accent: #c8102e;
+  --league-secondary: #d9e2ef;
+  --league-background: #f7f8fa;
+  --league-text: #111827;
+  --wp-on-accent: #ffffff;
+}
+
+/* NFL — bolder, more rugged, stadium-inspired look */
+.theme-nfl {
+  --league-primary: #003369;
+  --league-accent: #d50a0a;
+  --league-secondary: #001d3c;
+  --league-background: #f4f6f8;
+  --league-text: #111827;
+  --wp-on-accent: #ffffff;
+}
+
+/* NBA — modern, fast-paced, dynamic look */
+.theme-nba {
+  --league-primary: #111827;
+  --league-accent: #f97316;
+  --league-secondary: #2563eb;
+  --league-background: #f8fafc;
+  --league-text: #111827;
+  --wp-on-accent: #111827;
+}
+
+/* NHL — black, silver, and ice blue, a clean "ice arena" look */
+.theme-nhl {
+  --league-primary: #111111;
+  --league-accent: #168aad;
+  --league-secondary: #a7a9ac;
+  --league-background: #f1f7fa;
+  --league-text: #111827;
+  --wp-on-accent: #111827;
+}
+
+/* MLS — modern, minimalist soccer design */
+.theme-mls {
+  --league-primary: #101010;
+  --league-accent: #16a36a;
+  --league-secondary: #e5e7eb;
+  --league-background: #fafafa;
+  --league-text: #111827;
+  --wp-on-accent: #111827;
+}
+
+/* -------------------------------------------------------
+   Homepage league card variants (outside body.theme-*),
+   reusing the same colors as the themes above.
+   ------------------------------------------------------- */
+.league-card {
+  border-top: 4px solid var(--card-primary, var(--league-primary));
+}
+
+.league-card .card-badge {
+  border-color: var(--card-accent, var(--league-accent));
+  color: var(--card-primary, var(--league-primary));
+}
+
+.league-card--mlb {
+  --card-primary: #041e42;
+  --card-accent: #c8102e;
+}
+
+.league-card--nfl {
+  --card-primary: #003369;
+  --card-accent: #d50a0a;
+}
+
+.league-card--nba {
+  --card-primary: #111827;
+  --card-accent: #f97316;
+}
+
+.league-card--nhl {
+  --card-primary: #111111;
+  --card-accent: #168aad;
+}
+
+.league-card--mls {
+  --card-primary: #101010;
+  --card-accent: #16a36a;
+}
