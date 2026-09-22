@@ -461,6 +461,58 @@ h3 {
   margin-top: 1.5rem;
 }
 
+/* -------------------- Legal content -------------------- */
+
+.legal-updated {
+  color: var(--wp-muted);
+  font-size: var(--wp-fs-sm);
+  margin: 0 0 2rem;
+}
+
+.legal-content {
+  max-width: 70ch;
+}
+
+.legal-content h2 {
+  font-size: var(--wp-fs-xl);
+  margin: 2rem 0 0.75rem;
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content p {
+  margin: 0 0 1rem;
+}
+
+.legal-content ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.legal-content li {
+  margin-bottom: 0.4rem;
+}
+
+.legal-content a {
+  color: var(--league-accent);
+  text-decoration: underline;
+}
+
+.legal-back {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: var(--wp-fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--league-accent);
+}
+
+.legal-back:hover {
+  text-decoration: underline;
+}
+
 /* -------------------- Footer -------------------- */
 
 .site-footer {
@@ -493,6 +545,11 @@ h3 {
 
 .footer-nav a:hover {
   color: #fff;
+}
+
+.footer-legal {
+  font-size: 0.8125rem;
+  opacity: 0.8;
 }
 
 .footer-copy {
