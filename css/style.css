@@ -1317,3 +1317,31 @@ a.dir-link:hover {
     padding-bottom: 0;
   }
 }
+
+/* -------------------- Started games (set by js/main.js) -------------------- */
+
+.status-badge--started {
+  color: var(--wp-muted);
+  background: rgba(107, 114, 128, 0.12);
+}
+
+.event-card.is-started,
+.event-row.is-started {
+  opacity: 0.6;
+  border-top-color: var(--wp-border);
+  box-shadow: none;
+}
+
+.event-row.is-started .date-tile {
+  background: var(--wp-muted);
+}
+
+.event-card.is-started .event-cond-note {
+  display: none;
+}
+
+.lp-hero.is-started .cta-partner a {
+  color: inherit;
+  font-size: var(--wp-fs-sm);
+  font-weight: 700;
+}

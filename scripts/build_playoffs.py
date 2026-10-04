@@ -188,7 +188,7 @@ class League:
             if ev["listed_until"] < self.now:
                 continue
             self.upcoming.append(ev)
-        self.upcoming.sort(key=lambda ev: (ev["ifNecessary"], ev["start"], ev.get("priority", 100)))
+        self.upcoming.sort(key=lambda ev: (ev["started"], ev["ifNecessary"], ev["start"], ev.get("priority", 100)))
 
         for ev in self.upcoming:
             if not ev["url"]:
@@ -222,6 +222,7 @@ class League:
             "start": start,
             "has_time": has_time,
             "listed_until": (start if has_time else start.replace(hour=12)) + LISTED_AFTER_START,
+            "started": has_time and self.now >= start,
             "ifNecessary": bool(e.get("ifNecessary")),
             "round_abbr": self.round_text(s["round"], conf, "abbr"),
             "round_label": self.round_text(s["round"], conf),
@@ -366,7 +367,7 @@ def event_card(lg, ev, location="games-list", page_team=None):
     cond = ev["ifNecessary"]
     label = "View Tickets" if cond else "See Available Tickets"
     return """<article class="event-card%(mod)s" data-event-start="%(iso)s">
-  <div class="event-card-top">
+  <div class="event-card-top" data-status-slot>
     <span class="card-badge">%(tag)s</span>
     %(badge)s
   </div>
@@ -404,7 +405,7 @@ def event_row(lg, ev, location, page_team):
     cond = ev["ifNecessary"]
     return """<li class="event-row%(mod)s" data-event-start="%(iso)s">
   <time class="date-tile" datetime="%(iso)s"><span class="date-tile-month">%(mon)s</span><span class="date-tile-day">%(day)s</span></time>
-  <div class="event-row-body">
+  <div class="event-row-body" data-status-slot>
     <p class="event-row-title">%(title)s</p>
     <p class="event-row-meta">%(tag)s · %(time)s</p>
     <p class="event-row-meta">%(venue)s, %(city)s</p>
@@ -788,7 +789,8 @@ def build_team_page(lg, tid):
     short = team["shortName"]
     home_events = lg.team_events(tid, home=True)
     road_events = lg.team_events(tid, home=False)
-    featured = home_events[0] if home_events else None
+    not_started = [ev for ev in home_events if not ev["started"]]
+    featured = (not_started or home_events or [None])[0]
     sticky = ""
     body_class = lg.info["theme"]
     eyebrow = "%s %s Playoffs · %s" % (lg.season, lg.info["name"], team["market"])
@@ -813,7 +815,7 @@ def build_team_page(lg, tid):
         else:
             copy = ("Postseason baseball is back in %s. See the %s host the %s live at %s."
                     % (team["market"], home["shortName"], away["name"], ev["venue"]["name"]))
-        hero = """    <section class="lp-hero">
+        hero = """    <section class="lp-hero" data-hero-start="%(iso)s">
       <div class="container">
         <p class="eyebrow">%(eyebrow)s</p>
         <h1 class="lp-title">
@@ -1001,7 +1003,7 @@ def build_home_module(lg, limit=4):
         return ""
     cards = []
     for ev in confirmed:
-        cards.append("""<article class="event-card event-card--compact" data-event-start="%(iso)s">
+        cards.append("""<article class="event-card event-card--compact" data-event-start="%(iso)s" data-status-slot>
               <span class="card-badge">%(tag)s</span>
               <h3 class="event-matchup"><span class="event-away">%(away)s</span> <span class="event-at">at</span> <span class="event-home">%(home)s</span></h3>
               <p class="event-when">%(city)s · <time datetime="%(iso)s">%(date)s</time></p>

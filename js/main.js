@@ -111,32 +111,105 @@
 })();
 
 /* -------------------------------------------------------------
-   Hide games that already started (between data rebuilds) and
-   show the mobile sticky ticket CTA once the hero CTA scrolls
-   out of view.
+   Games that have started: marked "Started" with the ticket
+   button disabled and moved to the end of their list; removed
+   entirely LISTED_AFTER_START_MS after first pitch. Re-checked
+   every minute so open pages update without a reload. The
+   mobile sticky CTA appears once the hero CTA scrolls away.
    ------------------------------------------------------------- */
 (function () {
   "use strict";
 
   var LISTED_AFTER_START_MS = 3 * 60 * 60 * 1000;
-  var now = Date.now();
-  var timed = document.querySelectorAll("[data-event-start]");
-  Array.prototype.forEach.call(timed, function (el) {
-    var value = el.getAttribute("data-event-start");
-    // Date-only values (time TBA) stay listed through the day.
-    var start = Date.parse(value.length === 10 ? value + "T12:00:00" : value);
-    if (!isNaN(start) && now > start + LISTED_AFTER_START_MS) {
-      el.hidden = true;
-    }
-  });
+  var STARTED_BADGE = "Started";
+  var STARTED_CTA = "No Longer Available";
 
-  var sticky = document.getElementById("sticky-cta");
+  function startOf(el, attr) {
+    var value = el.getAttribute(attr);
+    // Date-only values (time TBA) are treated as noon local time.
+    return Date.parse(value.length === 10 ? value + "T12:00:00" : value);
+  }
+
+  function disableTickets(scope, label) {
+    var links = scope.querySelectorAll("a[data-outbound]");
+    Array.prototype.forEach.call(links, function (link) {
+      var span = document.createElement("span");
+      span.className = link.className + " is-disabled";
+      span.setAttribute("aria-disabled", "true");
+      span.textContent = label;
+      link.parentNode.replaceChild(span, link);
+    });
+  }
+
+  function markStarted(el) {
+    if (el.classList.contains("is-started")) {
+      return;
+    }
+    el.classList.add("is-started");
+    disableTickets(el, STARTED_CTA);
+    var slot = el.hasAttribute("data-status-slot") ? el : el.querySelector("[data-status-slot]");
+    if (slot) {
+      var old = slot.querySelector(".status-badge");
+      var badge = document.createElement("span");
+      badge.className = "status-badge status-badge--started";
+      badge.textContent = STARTED_BADGE;
+      if (old) {
+        old.parentNode.replaceChild(badge, old);
+      } else {
+        var after = slot.querySelector(".card-badge");
+        slot.insertBefore(badge, after ? after.nextSibling : slot.firstChild);
+      }
+    }
+    // Keep bookable games at the top of the list.
+    el.parentNode.appendChild(el);
+  }
+
+  function update() {
+    var now = Date.now();
+    var timed = document.querySelectorAll("[data-event-start]");
+    Array.prototype.forEach.call(timed, function (el) {
+      var start = startOf(el, "data-event-start");
+      if (isNaN(start) || now < start) {
+        return;
+      }
+      if (now > start + LISTED_AFTER_START_MS) {
+        el.hidden = true;
+      } else {
+        markStarted(el);
+      }
+    });
+
+    var hero = document.querySelector("[data-hero-start]");
+    if (hero && !hero.classList.contains("is-started") && now >= startOf(hero, "data-hero-start")) {
+      hero.classList.add("is-started");
+      disableTickets(hero, "This Game Has Started");
+      var note = hero.querySelector(".cta-partner");
+      var more = document.getElementById("home-games") || document.getElementById("road-games");
+      if (note && more) {
+        note.innerHTML = '<a href="#' + more.id + '">See upcoming games</a>';
+      } else if (note) {
+        note.hidden = true;
+      }
+      var sticky = document.getElementById("sticky-cta");
+      if (sticky) {
+        sticky.parentNode.removeChild(sticky);
+      }
+    }
+  }
+
+  update();
+  window.setInterval(update, 60 * 1000);
+
+  var stickyCta = document.getElementById("sticky-cta");
   var anchor = document.querySelector("[data-sticky-anchor]");
-  if (!sticky || !anchor || !("IntersectionObserver" in window)) {
+  if (!stickyCta || !anchor || !("IntersectionObserver" in window)) {
     return;
   }
   new IntersectionObserver(function (entries) {
     var entry = entries[0];
-    sticky.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
+    var el = document.getElementById("sticky-cta");
+    if (el) {
+      el.hidden = entry.isIntersecting || entry.boundingClientRect.top > 0;
+    }
   }).observe(anchor);
 })();
