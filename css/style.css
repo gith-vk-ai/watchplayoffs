@@ -570,3 +570,750 @@ h3 {
   white-space: nowrap;
   border: 0;
 }
+
+[hidden] {
+  display: none !important;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* =========================================================
+   Playoff ticket components (generated pages)
+   Shared by every league; colors come from the theme tokens.
+   ========================================================= */
+
+:root {
+  --wp-conditional: #92400e;
+  --wp-conditional-bg: #fffbeb;
+  --wp-confirmed: #166534;
+  --wp-confirmed-bg: #f0fdf4;
+}
+
+.btn:focus-visible,
+.team-card:focus-visible,
+.dir-link:focus-visible,
+.sub-nav a:focus-visible,
+.nav-link:focus-visible {
+  outline: 3px solid var(--league-accent);
+  outline-offset: 2px;
+}
+
+.btn.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.hero--compact {
+  padding-block: clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.hero--compact .hero-subtitle {
+  margin-bottom: 1.25rem;
+}
+
+/* -------------------- Section sub-navigation -------------------- */
+
+.sub-nav {
+  background: var(--wp-surface);
+  border-block: 1px solid var(--wp-border);
+}
+
+.sub-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.sub-nav a {
+  display: block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--wp-border);
+  font-size: var(--wp-fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sub-nav a:hover {
+  border-color: var(--league-accent);
+}
+
+/* -------------------- Status badges -------------------- */
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-badge--confirmed {
+  color: var(--wp-confirmed);
+  background: var(--wp-confirmed-bg);
+}
+
+.status-badge--conditional {
+  color: var(--wp-conditional);
+  background: var(--wp-conditional-bg);
+  border: 1px dashed currentColor;
+}
+
+/* -------------------- Event cards -------------------- */
+
+@media (min-width: 1024px) {
+  .card-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.event-card {
+  background: var(--wp-surface);
+  border: 1px solid var(--wp-border);
+  border-top: 4px solid var(--league-accent);
+  border-radius: var(--wp-radius-md);
+  box-shadow: var(--wp-shadow-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.event-card--conditional {
+  border-style: dashed;
+  border-top: 4px dashed var(--wp-border);
+  box-shadow: none;
+  background: transparent;
+}
+
+.event-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.event-matchup {
+  margin: 0.25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.event-away {
+  font-size: var(--wp-fs-base);
+  font-weight: 600;
+}
+
+.event-at {
+  font-size: var(--wp-fs-sm);
+  font-weight: 500;
+  color: var(--wp-muted);
+}
+
+.event-home {
+  font-size: var(--wp-fs-xl);
+  font-weight: 800;
+  color: var(--league-primary);
+}
+
+.event-when {
+  margin: 0;
+  font-weight: 700;
+}
+
+.event-where {
+  margin: 0;
+  font-size: var(--wp-fs-sm);
+  color: var(--wp-muted);
+}
+
+.event-cond-note {
+  margin: 0;
+  font-size: var(--wp-fs-sm);
+  color: var(--wp-conditional);
+}
+
+.event-cta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.cta-partner {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  color: var(--wp-muted);
+  text-align: center;
+}
+
+.event-card--compact .event-matchup {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.event-card--compact .event-home {
+  font-size: var(--wp-fs-lg);
+}
+
+.games-subgroup {
+  margin-top: 2.5rem;
+}
+
+.subgroup-title {
+  font-size: var(--wp-fs-xl);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--wp-muted);
+  border-radius: var(--wp-radius-sm);
+  cursor: pointer;
+}
+
+.subgroup-title:focus-visible {
+  outline: 3px solid var(--league-accent);
+  outline-offset: 2px;
+}
+
+.subgroup-lead {
+  margin: 0 0 1rem;
+  font-size: var(--wp-fs-sm);
+  color: var(--wp-muted);
+  max-width: 60ch;
+}
+
+/* -------------------- Team cards -------------------- */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  padding: 1.25rem;
+  background: var(--wp-surface);
+  border: 1px solid var(--wp-border);
+  border-radius: var(--wp-radius-md);
+  box-shadow: var(--wp-shadow-sm);
+  text-decoration: none;
+}
+
+.team-card:hover {
+  border-color: var(--league-accent);
+  box-shadow: var(--wp-shadow-md);
+}
+
+.team-mono {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--wp-radius-sm);
+  background: var(--league-primary);
+  color: var(--wp-on-primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.team-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.team-card-name {
+  font-size: var(--wp-fs-lg);
+  font-weight: 800;
+}
+
+.team-card-place,
+.team-card-next {
+  font-size: var(--wp-fs-sm);
+  color: var(--wp-muted);
+}
+
+.team-card-round {
+  margin-top: 0.35rem;
+  font-size: var(--wp-fs-sm);
+  font-weight: 700;
+  color: var(--league-accent);
+}
+
+.team-card-opp {
+  font-weight: 600;
+}
+
+.team-card-cta {
+  grid-column: 1 / -1;
+  margin-top: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--wp-radius-sm);
+  background: var(--league-accent);
+  color: var(--wp-on-accent);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* -------------------- Road to the title -------------------- */
+
+.road-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  counter-reset: road;
+}
+
+@media (min-width: 768px) {
+  .road-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.road-step {
+  counter-increment: road;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--wp-radius-sm);
+  border: 1px solid var(--wp-border);
+  background: var(--wp-surface);
+}
+
+@media (min-width: 768px) {
+  .road-step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.road-step-name {
+  font-weight: 700;
+}
+
+.road-step-name::before {
+  content: counter(road) ". ";
+  color: var(--wp-muted);
+}
+
+.road-step-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--wp-muted);
+}
+
+.road-step--complete {
+  opacity: 0.65;
+}
+
+.road-step--current {
+  border: 2px solid var(--league-accent);
+}
+
+.road-step--current .road-step-status {
+  color: var(--league-accent);
+}
+
+/* -------------------- Team directory -------------------- */
+
+.team-directory {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .team-directory {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dir-conf {
+  font-size: var(--wp-fs-xl);
+  margin: 0 0 1rem;
+}
+
+.dir-group + .dir-group {
+  margin-top: 1.25rem;
+}
+
+.dir-heading {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--wp-muted);
+}
+
+.dir-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.dir-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: var(--wp-fs-sm);
+  text-decoration: none;
+}
+
+.dir-link--plain {
+  color: var(--wp-muted);
+}
+
+a.dir-link:hover {
+  text-decoration: underline;
+}
+
+.dir-link--playoffs {
+  font-weight: 700;
+}
+
+.dir-badge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: var(--league-accent);
+  color: var(--wp-on-accent);
+}
+
+/* -------------------- Team landing page hero -------------------- */
+
+.lp-hero {
+  background: var(--league-primary);
+  color: var(--wp-on-primary);
+  padding-block: 1.5rem 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .lp-hero {
+    padding-block: 3rem 3.25rem;
+  }
+}
+
+.lp-hero .eyebrow {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.lp-title {
+  margin: 0 0 0.75rem;
+  font-size: var(--wp-fs-3xl);
+  line-height: 1.1;
+}
+
+.lp-matchup {
+  display: block;
+}
+
+.lp-team--away {
+  opacity: 0.9;
+}
+
+.lp-vs {
+  font-size: 0.6em;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.lp-title-sub {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.lp-round {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.lp-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  margin: 0 0 1rem;
+  max-width: 34rem;
+}
+
+.lp-facts dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.lp-facts dd {
+  margin: 0;
+  font-size: var(--wp-fs-lg);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.lp-copy {
+  margin: 0 0 1rem;
+  max-width: 50ch;
+  opacity: 0.9;
+}
+
+.lp-cta {
+  max-width: 26rem;
+}
+
+.lp-cta .btn {
+  font-size: var(--wp-fs-lg);
+  padding-block: 0.95rem;
+}
+
+.lp-cta .cta-partner {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.lp-disclosure {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.lp-disclosure a {
+  color: inherit;
+}
+
+/* -------------------- Event rows (team pages) -------------------- */
+
+.event-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.event-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 1rem;
+  align-items: start;
+  padding: 1rem;
+  background: var(--wp-surface);
+  border: 1px solid var(--wp-border);
+  border-radius: var(--wp-radius-md);
+}
+
+.event-row--conditional {
+  border-style: dashed;
+  background: transparent;
+}
+
+@media (min-width: 640px) {
+  .event-row {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}
+
+.date-tile {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  padding: 0.4rem 0;
+  border-radius: var(--wp-radius-sm);
+  background: var(--league-primary);
+  color: var(--wp-on-primary);
+  line-height: 1.1;
+}
+
+.event-row--conditional .date-tile {
+  background: transparent;
+  color: var(--league-text);
+  border: 1px dashed var(--wp-muted);
+}
+
+.date-tile-month {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.date-tile-day {
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+
+.event-row-title {
+  margin: 0;
+  font-weight: 800;
+  font-size: var(--wp-fs-lg);
+}
+
+.event-row-meta {
+  margin: 0;
+  font-size: var(--wp-fs-sm);
+  color: var(--wp-muted);
+}
+
+.event-row-body .status-badge {
+  margin-top: 0.35rem;
+}
+
+.event-row-cta {
+  grid-column: 1 / -1;
+}
+
+.event-row-cta .btn {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .event-row-cta {
+    grid-column: auto;
+  }
+}
+
+/* -------------------- Fallback / context -------------------- */
+
+.fallback-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  border: 1px solid var(--wp-border);
+  border-radius: var(--wp-radius-md);
+  background: var(--wp-surface);
+}
+
+.fallback-title {
+  margin: 0;
+  font-size: var(--wp-fs-lg);
+}
+
+.series-context {
+  padding-block: 1.5rem 2rem;
+}
+
+.series-context a {
+  color: var(--league-accent);
+}
+
+.module-more {
+  margin: 1.5rem 0 0;
+}
+
+.home-league-module {
+  background: var(--wp-surface);
+}
+
+/* -------------------- Disclosure -------------------- */
+
+.disclosure-note {
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--wp-border);
+  font-size: 0.8125rem;
+  color: var(--wp-muted);
+}
+
+.disclosure-note p {
+  margin: 0;
+  max-width: 80ch;
+}
+
+.disclosure-note a {
+  color: inherit;
+}
+
+/* -------------------- Mobile sticky ticket CTA -------------------- */
+
+.sticky-cta {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem var(--wp-gutter) calc(0.65rem + env(safe-area-inset-bottom));
+  background: var(--wp-surface);
+  border-top: 1px solid var(--wp-border);
+  box-shadow: 0 -6px 18px rgba(15, 23, 42, 0.1);
+}
+
+.sticky-cta-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: var(--wp-fs-sm);
+  line-height: 1.3;
+}
+
+.sticky-cta-text strong,
+.sticky-cta-text span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-cta-text span {
+  color: var(--wp-muted);
+}
+
+.sticky-cta .btn {
+  flex-shrink: 0;
+  padding: 0.7rem 1.1rem;
+}
+
+.has-sticky-cta .site-footer {
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .sticky-cta {
+    display: none !important;
+  }
+
+  .has-sticky-cta .site-footer {
+    padding-bottom: 0;
+  }
+}

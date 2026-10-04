@@ -6,7 +6,11 @@ Statický web pro watchplayoffs.com, hostovaný na Cloudflare Pages.
 
 - `index.html` – hlavní stránka
 - `css/style.css` – styly
-- `js/main.js` – skripty
+- `js/main.js` – skripty (navigace, předávání kampaňových parametrů, sticky CTA)
+- `data/mlb.json` – jediný zdroj dat pro MLB playoff stránky (viz `data/README.md`)
+- `scripts/build_playoffs.py` – generuje `/mlb/`, `/mlb/<tym>-playoff-tickets/` a MLB modul na homepage
+
+Po každé úpravě dat spusť `python3 scripts/build_playoffs.py` a commitni vygenerované soubory.
 
 ## Nasazení na Cloudflare Pages
 

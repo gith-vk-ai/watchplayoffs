@@ -1,0 +1,95 @@
+{
+  "league": {
+    "id": "mlb",
+    "name": "MLB",
+    "fullName": "Major League Baseball",
+    "sport": "Baseball",
+    "season": 2026,
+    "theme": "theme-mlb",
+    "championship": "World Series",
+    "conferences": [
+      { "id": "AL", "name": "American League" },
+      { "id": "NL", "name": "National League" }
+    ],
+    "rounds": [
+      { "id": "WC", "label": "{conf} Wild Card Series", "abbr": "{conf} Wild Card", "name": "Wild Card Series", "format": "best-of-three" },
+      { "id": "DS", "label": "{conf} Division Series", "abbr": "{conf}DS", "name": "Division Series", "format": "best-of-five" },
+      { "id": "CS", "label": "{conf} Championship Series", "abbr": "{conf}CS", "name": "Championship Series", "format": "best-of-seven" },
+      { "id": "WS", "label": "World Series", "abbr": "World Series", "name": "World Series", "format": "best-of-seven" }
+    ]
+  },
+
+  "partners": {
+    "ticketnetwork": { "name": "TicketNetwork", "passThroughParams": false }
+  },
+  "defaultPartner": "ticketnetwork",
+
+  "postseason": {
+    "series": [
+      { "id": "nlds-lad-atl", "round": "DS", "conference": "NL", "teams": ["lad", "atl"], "winner": null },
+      { "id": "nlds-mil-sd", "round": "DS", "conference": "NL", "teams": ["mil", "sd"], "winner": null },
+      { "id": "alds-cle-cws", "round": "DS", "conference": "AL", "teams": ["cle", "cws"], "winner": null },
+      { "id": "alds-tb-nyy", "round": "DS", "conference": "AL", "teams": ["tb", "nyy"], "winner": null }
+    ],
+
+    "events": [
+      { "id": "nlds-lad-atl-g2", "series": "nlds-lad-atl", "game": 2, "away": "atl", "home": "lad", "date": "2026-10-04", "time": "17:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "nlds-lad-atl-g3", "series": "nlds-lad-atl", "game": 3, "away": "lad", "home": "atl", "date": "2026-10-06", "time": "18:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "nlds-lad-atl-g4", "series": "nlds-lad-atl", "game": 4, "away": "lad", "home": "atl", "date": "2026-10-07", "time": "18:00", "ifNecessary": true, "ticketsUrl": "" },
+      { "id": "nlds-lad-atl-g5", "series": "nlds-lad-atl", "game": 5, "away": "atl", "home": "lad", "date": "2026-10-09", "time": "17:00", "ifNecessary": true, "ticketsUrl": "" },
+
+      { "id": "nlds-mil-sd-g2", "series": "nlds-mil-sd", "game": 2, "away": "sd", "home": "mil", "date": "2026-10-04", "time": "15:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "nlds-mil-sd-g3", "series": "nlds-mil-sd", "game": 3, "away": "mil", "home": "sd", "date": "2026-10-06", "time": "18:30", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "nlds-mil-sd-g4", "series": "nlds-mil-sd", "game": 4, "away": "mil", "home": "sd", "date": "2026-10-07", "time": "19:00", "ifNecessary": true, "ticketsUrl": "" },
+      { "id": "nlds-mil-sd-g5", "series": "nlds-mil-sd", "game": 5, "away": "sd", "home": "mil", "date": "2026-10-09", "time": "15:30", "ifNecessary": true, "ticketsUrl": "" },
+
+      { "id": "alds-cle-cws-g2", "series": "alds-cle-cws", "game": 2, "away": "cws", "home": "cle", "date": "2026-10-05", "time": "17:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "alds-cle-cws-g3", "series": "alds-cle-cws", "game": 3, "away": "cle", "home": "cws", "date": "2026-10-07", "time": "15:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "alds-cle-cws-g4", "series": "alds-cle-cws", "game": 4, "away": "cle", "home": "cws", "date": "2026-10-08", "time": "16:00", "ifNecessary": true, "ticketsUrl": "" },
+      { "id": "alds-cle-cws-g5", "series": "alds-cle-cws", "game": 5, "away": "cws", "home": "cle", "date": "2026-10-10", "time": "17:00", "ifNecessary": true, "ticketsUrl": "" },
+
+      { "id": "alds-tb-nyy-g2", "series": "alds-tb-nyy", "game": 2, "away": "nyy", "home": "tb", "date": "2026-10-05", "time": "20:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "alds-tb-nyy-g3", "series": "alds-tb-nyy", "game": 3, "away": "tb", "home": "nyy", "date": "2026-10-07", "time": "20:00", "ifNecessary": false, "ticketsUrl": "" },
+      { "id": "alds-tb-nyy-g4", "series": "alds-tb-nyy", "game": 4, "away": "tb", "home": "nyy", "date": "2026-10-08", "time": "20:00", "ifNecessary": true, "ticketsUrl": "" },
+      { "id": "alds-tb-nyy-g5", "series": "alds-tb-nyy", "game": 5, "away": "nyy", "home": "tb", "date": "2026-10-10", "time": "20:00", "ifNecessary": true, "ticketsUrl": "" }
+    ]
+  },
+
+  "teams": [
+    { "id": "bal", "slug": "baltimore-orioles", "name": "Baltimore Orioles", "shortName": "Orioles", "abbr": "BAL", "market": "Baltimore", "stateName": "Maryland", "conference": "AL", "division": "East", "venue": { "name": "Oriole Park at Camden Yards", "city": "Baltimore", "state": "MD" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "bos", "slug": "boston-red-sox", "name": "Boston Red Sox", "shortName": "Red Sox", "abbr": "BOS", "market": "Boston", "stateName": "Massachusetts", "conference": "AL", "division": "East", "venue": { "name": "Fenway Park", "city": "Boston", "state": "MA" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "nyy", "slug": "new-york-yankees", "name": "New York Yankees", "shortName": "Yankees", "abbr": "NYY", "market": "New York", "stateName": "New York", "conference": "AL", "division": "East", "venue": { "name": "Yankee Stadium", "city": "Bronx", "state": "NY" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "tb", "slug": "tampa-bay-rays", "name": "Tampa Bay Rays", "shortName": "Rays", "abbr": "TB", "market": "Tampa Bay", "stateName": "Florida", "conference": "AL", "division": "East", "venue": { "name": "Tropicana Field", "city": "St. Petersburg", "state": "FL" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "tor", "slug": "toronto-blue-jays", "name": "Toronto Blue Jays", "shortName": "Blue Jays", "abbr": "TOR", "market": "Toronto", "stateName": "Ontario", "country": "CA", "conference": "AL", "division": "East", "venue": { "name": "Rogers Centre", "city": "Toronto", "state": "ON" }, "timezone": "America/Toronto", "ticketsUrl": "" },
+
+    { "id": "cws", "slug": "chicago-white-sox", "name": "Chicago White Sox", "shortName": "White Sox", "abbr": "CWS", "market": "Chicago", "stateName": "Illinois", "conference": "AL", "division": "Central", "venue": { "name": "Rate Field", "city": "Chicago", "state": "IL" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+    { "id": "cle", "slug": "cleveland-guardians", "name": "Cleveland Guardians", "shortName": "Guardians", "abbr": "CLE", "market": "Cleveland", "stateName": "Ohio", "conference": "AL", "division": "Central", "venue": { "name": "Progressive Field", "city": "Cleveland", "state": "OH" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "det", "slug": "detroit-tigers", "name": "Detroit Tigers", "shortName": "Tigers", "abbr": "DET", "market": "Detroit", "stateName": "Michigan", "conference": "AL", "division": "Central", "venue": { "name": "Comerica Park", "city": "Detroit", "state": "MI" }, "timezone": "America/Detroit", "ticketsUrl": "" },
+    { "id": "kc", "slug": "kansas-city-royals", "name": "Kansas City Royals", "shortName": "Royals", "abbr": "KC", "market": "Kansas City", "stateName": "Missouri", "conference": "AL", "division": "Central", "venue": { "name": "Kauffman Stadium", "city": "Kansas City", "state": "MO" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+    { "id": "min", "slug": "minnesota-twins", "name": "Minnesota Twins", "shortName": "Twins", "abbr": "MIN", "market": "Minneapolis", "stateName": "Minnesota", "conference": "AL", "division": "Central", "venue": { "name": "Target Field", "city": "Minneapolis", "state": "MN" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+
+    { "id": "ath", "slug": "athletics", "name": "Athletics", "shortName": "Athletics", "abbr": "ATH", "market": "Sacramento", "stateName": "California", "conference": "AL", "division": "West", "venue": { "name": "Sutter Health Park", "city": "West Sacramento", "state": "CA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" },
+    { "id": "hou", "slug": "houston-astros", "name": "Houston Astros", "shortName": "Astros", "abbr": "HOU", "market": "Houston", "stateName": "Texas", "conference": "AL", "division": "West", "venue": { "name": "Daikin Park", "city": "Houston", "state": "TX" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+    { "id": "laa", "slug": "los-angeles-angels", "name": "Los Angeles Angels", "shortName": "Angels", "abbr": "LAA", "market": "Anaheim", "stateName": "California", "conference": "AL", "division": "West", "venue": { "name": "Angel Stadium", "city": "Anaheim", "state": "CA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" },
+    { "id": "sea", "slug": "seattle-mariners", "name": "Seattle Mariners", "shortName": "Mariners", "abbr": "SEA", "market": "Seattle", "stateName": "Washington", "conference": "AL", "division": "West", "venue": { "name": "T-Mobile Park", "city": "Seattle", "state": "WA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" },
+    { "id": "tex", "slug": "texas-rangers", "name": "Texas Rangers", "shortName": "Rangers", "abbr": "TEX", "market": "Arlington", "stateName": "Texas", "conference": "AL", "division": "West", "venue": { "name": "Globe Life Field", "city": "Arlington", "state": "TX" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+
+    { "id": "atl", "slug": "atlanta-braves", "name": "Atlanta Braves", "shortName": "Braves", "abbr": "ATL", "market": "Atlanta", "stateName": "Georgia", "conference": "NL", "division": "East", "venue": { "name": "Truist Park", "city": "Atlanta", "state": "GA" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "mia", "slug": "miami-marlins", "name": "Miami Marlins", "shortName": "Marlins", "abbr": "MIA", "market": "Miami", "stateName": "Florida", "conference": "NL", "division": "East", "venue": { "name": "loanDepot park", "city": "Miami", "state": "FL" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "nym", "slug": "new-york-mets", "name": "New York Mets", "shortName": "Mets", "abbr": "NYM", "market": "New York", "stateName": "New York", "conference": "NL", "division": "East", "venue": { "name": "Citi Field", "city": "Queens", "state": "NY" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "phi", "slug": "philadelphia-phillies", "name": "Philadelphia Phillies", "shortName": "Phillies", "abbr": "PHI", "market": "Philadelphia", "stateName": "Pennsylvania", "conference": "NL", "division": "East", "venue": { "name": "Citizens Bank Park", "city": "Philadelphia", "state": "PA" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "wsh", "slug": "washington-nationals", "name": "Washington Nationals", "shortName": "Nationals", "abbr": "WSH", "market": "Washington", "stateName": "District of Columbia", "conference": "NL", "division": "East", "venue": { "name": "Nationals Park", "city": "Washington", "state": "DC" }, "timezone": "America/New_York", "ticketsUrl": "" },
+
+    { "id": "chc", "slug": "chicago-cubs", "name": "Chicago Cubs", "shortName": "Cubs", "abbr": "CHC", "market": "Chicago", "stateName": "Illinois", "conference": "NL", "division": "Central", "venue": { "name": "Wrigley Field", "city": "Chicago", "state": "IL" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+    { "id": "cin", "slug": "cincinnati-reds", "name": "Cincinnati Reds", "shortName": "Reds", "abbr": "CIN", "market": "Cincinnati", "stateName": "Ohio", "conference": "NL", "division": "Central", "venue": { "name": "Great American Ball Park", "city": "Cincinnati", "state": "OH" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "mil", "slug": "milwaukee-brewers", "name": "Milwaukee Brewers", "shortName": "Brewers", "abbr": "MIL", "market": "Milwaukee", "stateName": "Wisconsin", "conference": "NL", "division": "Central", "venue": { "name": "American Family Field", "city": "Milwaukee", "state": "WI" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+    { "id": "pit", "slug": "pittsburgh-pirates", "name": "Pittsburgh Pirates", "shortName": "Pirates", "abbr": "PIT", "market": "Pittsburgh", "stateName": "Pennsylvania", "conference": "NL", "division": "Central", "venue": { "name": "PNC Park", "city": "Pittsburgh", "state": "PA" }, "timezone": "America/New_York", "ticketsUrl": "" },
+    { "id": "stl", "slug": "st-louis-cardinals", "name": "St. Louis Cardinals", "shortName": "Cardinals", "abbr": "STL", "market": "St. Louis", "stateName": "Missouri", "conference": "NL", "division": "Central", "venue": { "name": "Busch Stadium", "city": "St. Louis", "state": "MO" }, "timezone": "America/Chicago", "ticketsUrl": "" },
+
+    { "id": "ari", "slug": "arizona-diamondbacks", "name": "Arizona Diamondbacks", "shortName": "Diamondbacks", "abbr": "ARI", "market": "Phoenix", "stateName": "Arizona", "conference": "NL", "division": "West", "venue": { "name": "Chase Field", "city": "Phoenix", "state": "AZ" }, "timezone": "America/Phoenix", "ticketsUrl": "" },
+    { "id": "col", "slug": "colorado-rockies", "name": "Colorado Rockies", "shortName": "Rockies", "abbr": "COL", "market": "Denver", "stateName": "Colorado", "conference": "NL", "division": "West", "venue": { "name": "Coors Field", "city": "Denver", "state": "CO" }, "timezone": "America/Denver", "ticketsUrl": "" },
+    { "id": "lad", "slug": "los-angeles-dodgers", "name": "Los Angeles Dodgers", "shortName": "Dodgers", "abbr": "LAD", "market": "Los Angeles", "stateName": "California", "conference": "NL", "division": "West", "venue": { "name": "Dodger Stadium", "city": "Los Angeles", "state": "CA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" },
+    { "id": "sd", "slug": "san-diego-padres", "name": "San Diego Padres", "shortName": "Padres", "abbr": "SD", "market": "San Diego", "stateName": "California", "conference": "NL", "division": "West", "venue": { "name": "Petco Park", "city": "San Diego", "state": "CA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" },
+    { "id": "sf", "slug": "san-francisco-giants", "name": "San Francisco Giants", "shortName": "Giants", "abbr": "SF", "market": "San Francisco", "stateName": "California", "conference": "NL", "division": "West", "venue": { "name": "Oracle Park", "city": "San Francisco", "state": "CA" }, "timezone": "America/Los_Angeles", "ticketsUrl": "" }
+  ]
+}
