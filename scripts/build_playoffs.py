@@ -30,7 +30,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://watchplayoffs.com"
+SITE_URL = "https://www.watchplayoffs.com"
 LEAGUES = ["mlb"]
 
 # A game stays listed until this long after first pitch (the client-side
