@@ -1,6 +1,6 @@
 # WatchPlayoffs
 
-Statický web pro watchplayoffs.com, hostovaný na Cloudflare Pages.
+Statický web pro watchplayoffs.com, hostovaný na Cloudflare Workers (static assets, konfigurace ve `wrangler.jsonc`, vyloučené soubory v `.assetsignore`).
 
 ## Struktura
 

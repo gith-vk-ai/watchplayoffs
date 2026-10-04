@@ -1,0 +1,11 @@
+# Repository files that must not be served publicly
+.git
+.gitignore
+.assetsignore
+.wrangler
+.DS_Store
+node_modules
+wrangler.jsonc
+README.md
+data/README.md
+scripts

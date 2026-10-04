@@ -1,0 +1,9 @@
+// Static site served by Cloudflare Workers static assets (no Worker script).
+// Files listed in .assetsignore are never published.
+{
+  "name": "watchplayoffs",
+  "compatibility_date": "2026-09-22",
+  "assets": {
+    "directory": "./"
+  }
+}
